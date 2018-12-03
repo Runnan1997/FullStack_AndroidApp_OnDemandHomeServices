@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SEG_Deliberable1</string>
+
+    <string-array name="time">
+        <item>10:00to12:00</item>
+        <item>12:00to14:00</item>
+        <item>14:00to16:00</item>
+        <item>16:00to18:00</item>
+        <item>18:00to20:00</item>
+    </string-array>
+    <string name="title_activity_average_rate_name_list">AverageRateNameList</string>
+</resources>

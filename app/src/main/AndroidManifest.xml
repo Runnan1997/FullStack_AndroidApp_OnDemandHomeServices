@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.uottawa.runnan.seg_deliberable1">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUp" />
+        <activity android:name=".Login" />
+        <activity android:name=".ServiceList" />
+        <activity android:name=".Home" />
+        <activity android:name=".SP_profile" />
+        <activity
+            android:name=".AvailableTime"
+            android:parentActivityName=".SP_profile" />
+        <activity android:name=".AvailabilityList" />
+        <activity
+            android:name=".MyProfile"
+            android:parentActivityName=".SP_profile" />
+        <activity android:name=".MyServiceList" />
+        <activity
+            android:name=".MyService"
+            android:parentActivityName=".SP_profile" />
+        <activity
+            android:name=".Homeowner"
+            android:parentActivityName=".Home" />
+        <activity android:name=".SearchSP" />
+        <activity android:name=".ByTime" />
+        <activity android:name=".ServiceProviderList" />
+        <activity
+            android:name=".SPServiceByTime"
+            android:parentActivityName=".ByTime" />
+        <activity android:name=".ByService" />
+        <activity android:name=".SPnameByService" />
+        <activity android:name=".SPNameList" />
+        <activity
+            android:name=".RateServiceProvider"
+            android:parentActivityName=".Homeowner" />
+        <activity android:name=".RateServiceProviderList" />
+        <activity android:name=".AvailableSPnames" />
+        <activity android:name=".ByRate" />
+        <activity android:name=".SPnameByRate" />
+        <activity
+            android:name=".AverageRateNameList"
+            android:label="@string/title_activity_average_rate_name_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".aveRateNameList"></activity>
+    </application>
+
+</manifest>
