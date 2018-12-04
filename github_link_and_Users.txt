@@ -1,0 +1,13 @@
+GitHub Link: https://github.com/Runnan1997/seg
+
+Pre-Defined Admin: 
+name - Runnan,
+password: 1234
+
+Pre-Defined Service Provider: 
+name - Chris,
+password: 1234
+
+Pre-Defined Home Owner:
+name: Zack
+password:1234
