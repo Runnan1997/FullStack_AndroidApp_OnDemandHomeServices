@@ -34,6 +34,5 @@ public class aveRateNameList extends ArrayAdapter<Rating> {
         TextViewspNameByrate.setText(r.getName());
 
         return listViewItem;
-
     }
 }

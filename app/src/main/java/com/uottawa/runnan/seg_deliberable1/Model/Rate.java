@@ -12,6 +12,7 @@ public class Rate {
         this.rating=rating;
         this.comment=comment;
     }
+
     public Rate(){}
 
 

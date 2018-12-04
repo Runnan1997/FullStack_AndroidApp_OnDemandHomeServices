@@ -1,6 +1,6 @@
 package com.uottawa.runnan.seg_deliberable1.Model;
 
-public class ServiceProvider{
+public class ServiceProvider extends User{
 
     private String _address;
 

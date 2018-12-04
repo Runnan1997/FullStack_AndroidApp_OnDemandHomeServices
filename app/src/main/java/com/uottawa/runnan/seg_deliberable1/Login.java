@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,11 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.uottawa.runnan.seg_deliberable1.Model.User;
 
+import java.security.MessageDigest;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 public class Login extends AppCompatActivity {
     //Firebase
     FirebaseDatabase database;
@@ -27,7 +33,6 @@ public class Login extends AppCompatActivity {
     EditText Name;
     EditText Password;
     Button SignIn;
-    Button CreateAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +42,14 @@ public class Login extends AppCompatActivity {
         Name = (EditText)findViewById(R.id.name);
         Password = (EditText)findViewById(R.id.psw);
         SignIn = (Button)findViewById(R.id.btnlogin);
-        CreateAccount = (Button)findViewById(R.id.btncreataccount);
         //FireBase
         database = FirebaseDatabase.getInstance();
         users = database.getReference("Users");
 
-        CreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSignUp();
-            }
-        });
-
         SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                signIn(Name.getText().toString(), Password.getText().toString());
+            public void onClick(View v){
+                signIn(Name.getText().toString(),Password.getText().toString());
             }
         });
     }
@@ -94,4 +91,5 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 }

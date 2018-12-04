@@ -2,9 +2,11 @@ package com.uottawa.runnan.seg_deliberable1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
 
@@ -17,6 +19,12 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.uottawa.runnan.seg_deliberable1.Model.User;
 
+import java.security.MessageDigest;
+import java.util.regex.Pattern;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 public class SignUp extends AppCompatActivity {
 
     EditText Name;
@@ -27,6 +35,7 @@ public class SignUp extends AppCompatActivity {
     //Firebase
     FirebaseDatabase database;
     DatabaseReference users;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +53,7 @@ public class SignUp extends AppCompatActivity {
         Register = (Button)findViewById(R.id.btnRegist);
         SignIn = (Button)findViewById(R.id.btnsignin);
 
+
         SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +70,7 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View view) {
                 String email = Email.getText().toString().trim();
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
                 if(email.matches(emailPattern)){
                     final User user = new User(Name.getText().toString(), Password.getText().toString(), Email.getText().toString(),roletype);
                     users.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -77,8 +88,9 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(SignUp.this, "The username is already exsist!", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                users.child(user.getUsername()).setValue(user);
-                                Toast.makeText(SignUp.this,"Success Register", Toast.LENGTH_SHORT).show();
+                                    User usertest = new User(Name.getText().toString(),Password.getText().toString(),Email.getText().toString(), roletype);
+                                    users.child(usertest.getUsername()).setValue(usertest);
+                                    Toast.makeText(SignUp.this,"Success Register", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -97,4 +109,5 @@ public class SignUp extends AppCompatActivity {
         });
 
     }
+
 }

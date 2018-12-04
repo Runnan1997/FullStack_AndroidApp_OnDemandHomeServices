@@ -38,9 +38,6 @@ public class RateServiceProvider extends AppCompatActivity {
     EditText comments;
     EditText rating;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +90,6 @@ public class RateServiceProvider extends AppCompatActivity {
                     if(found==false){
                         Rating rating = new Rating(provName, 0);
                         databaseRating.child(provName).setValue(rating);
-
                     }
                 }
             }
@@ -154,6 +150,11 @@ public class RateServiceProvider extends AppCompatActivity {
 
                 databaseRate.child(ProvRate.getId()).setValue(ProvRate);
                 calculateProviderRating(provName);
+
+                for(DataSnapshot child : dataSnapshot.getChildren()){
+                    String name = child.getValue(Rate.class).getSpName();
+                    calculateProviderRating(name);
+                }
 
             }
 

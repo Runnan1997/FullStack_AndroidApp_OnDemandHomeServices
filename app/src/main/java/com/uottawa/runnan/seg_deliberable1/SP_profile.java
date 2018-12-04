@@ -52,8 +52,7 @@ public class SP_profile extends AppCompatActivity {
     public static final String EXTRA_TEXT = "serviceproviderName";
     public static final String EXTRA_TEXT2 = "serviceproviderName2";
     public static final String EXTRA_TEXT3 = "serviceproviderName3";
-   // ListView listviewproducts;
-   // List<Product> products;
+
 
 
     @Override
@@ -72,54 +71,13 @@ public class SP_profile extends AppCompatActivity {
         company = (EditText)findViewById(R.id.etcompany) ;
         phonenumber = (EditText)findViewById(R.id.etphonenumber);
         gInfo = (EditText)findViewById(R.id.etinfo);
-     //   service = (TextView) findViewById(R.id.etservices);
+
         createProfile = (Button)findViewById(R.id.btncreateprofile);
         seemyservice = (Button)findViewById(R.id.seemyservice);
 
-
-        //    listviewproducts = (ListView) findViewById(R.id.servicesfromadmin);
-    //    databaseServices = FirebaseDatabase.getInstance().getReference("services");
         databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
         databasenewSer = FirebaseDatabase.getInstance().getReference("myServices");
-  //      products = new ArrayList<>();
 
-       /* listviewproducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                final Product product = products.get(i);
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SP_profile.this);
-                LayoutInflater inflater = getLayoutInflater();
-                final View dialogView = inflater.inflate(R.layout.sp_dialog, null);
-                dialogBuilder.setView(dialogView);
-
-                final Button btnadd = (Button) dialogView.findViewById(R.id.btnaddservice);
-
-                final AlertDialog b = dialogBuilder.create();
-                b.show();
-
-                btnadd.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        final Product newservice = new Product(service.getText().toString());
-                        service.setText(product.getProductName());
-                        databasenewSer.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                databasenewSer.child(newservice.getProductName()).setValue(newservice);
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-                        b.dismiss();
-                    }
-                });
-
-            }
-        });*/
         checkmytime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,27 +138,7 @@ public class SP_profile extends AppCompatActivity {
 
 
 
-  /*      addservice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Product newservice = new Product(service.getText().toString());
-                databasenewSer.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(service.getText().toString().isEmpty()){
-                            Toast.makeText(SP_profile.this,"Please choose a service",Toast.LENGTH_LONG).show();
-                        }
-                        else{
-                            databasenewSer.child(newservice.getProductName()).setValue(newservice);
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
-            }
-        });*/
         seemyservice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,26 +183,5 @@ public class SP_profile extends AppCompatActivity {
     }
 
 
-   /* @Override
-    protected void  onStart() {
-        super.onStart();
-        databaseServices.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                products.clear();
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Product product = postSnapshot.getValue(Product.class);
-                    products.add(product);
-                }
-                ProductList productsAdapter = new ProductList(SP_profile.this, products);
-                listviewproducts.setAdapter(productsAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }*/
 
 }

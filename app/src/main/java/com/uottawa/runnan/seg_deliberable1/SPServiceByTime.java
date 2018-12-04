@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.uottawa.runnan.seg_deliberable1.Model.BookedService;
+import com.uottawa.runnan.seg_deliberable1.Model.HomeOwner;
 import com.uottawa.runnan.seg_deliberable1.Model.Product;
 
 import java.util.ArrayList;
@@ -42,8 +42,9 @@ public class SPServiceByTime extends AppCompatActivity {
         if(!service.getText().toString().isEmpty()){
             String honame = hoName.getText().toString();
             String spname = spName.getText().toString();
+            String s = service.getText().toString();
             String id = databaseBooking.push().getKey();
-            BookedService bs = new BookedService(honame,spname,id);
+            HomeOwner bs = new HomeOwner(honame,spname,s,id);
             databaseBooking.child(id).setValue(bs);
             Toast.makeText(this,"Service booked",Toast.LENGTH_LONG).show();
         }

@@ -55,7 +55,8 @@
             android:name=".AverageRateNameList"
             android:label="@string/title_activity_average_rate_name_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".aveRateNameList"></activity>
+        <activity android:name=".aveRateNameList" />
+        <activity android:name=".RateServices"></activity>
     </application>
 
 </manifest>

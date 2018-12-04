@@ -63,7 +63,6 @@ public class MyService extends AppCompatActivity {
         String text = intent.getStringExtra(SP_profile.EXTRA_TEXT);
         b.setText(text);
         Button addservice = (Button)findViewById(R.id.btnaddservice);
-        Button finishadding = (Button)findViewById(R.id.btnfinishadding);
      //   checkmytime = (Button)findViewById(R.id.btnchecktime);
         listviewproducts = (ListView) findViewById(R.id.servicesfromadmin);
         databaseServices = FirebaseDatabase.getInstance().getReference("services");
@@ -115,13 +114,6 @@ public class MyService extends AppCompatActivity {
 
                     }
                 });
-            }
-        });
-        finishadding.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SP_profile.class);
-                startActivity(intent);
             }
         });
 

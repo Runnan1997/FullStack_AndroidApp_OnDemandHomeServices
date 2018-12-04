@@ -135,15 +135,15 @@ public class MyProfile extends AppCompatActivity {
             }
         });
 
-        availabilitylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+     /*   availabilitylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Availability mya = av.get(position);
                 showUpdateDeleteDialog(mya.getTime());
             }
         });
-    }
-    private void showUpdateDeleteDialog(final String mytime){
+    }*/
+   /* private void showUpdateDeleteDialog(final String mytime){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MyProfile.this);
         LayoutInflater inflater = getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.enter_time_dialog, null);
@@ -188,10 +188,10 @@ public class MyProfile extends AppCompatActivity {
                 deleteA(mytime);
                 b.dismiss();
             }
-        });
+        });*/
     }
 
-    public void updateA(String da, String ti){
+  /*  public void updateA(String da, String ti){
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("availability").child(ti);
         Availability a = new Availability(da, ti);
         dR.setValue(a);
@@ -204,7 +204,7 @@ public class MyProfile extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Service Deleted!", Toast.LENGTH_LONG).show();
         return true;
 
-    }
+    }*/
 
 
 

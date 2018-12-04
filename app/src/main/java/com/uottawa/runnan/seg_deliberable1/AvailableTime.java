@@ -33,7 +33,6 @@ public class AvailableTime extends AppCompatActivity implements AdapterView.OnIt
     EditText availabledate;
     TextView availabletime;
     Button addavailability;
-    Button finishadding;
     TextView serviceprovidername;
 
 
@@ -45,7 +44,6 @@ public class AvailableTime extends AppCompatActivity implements AdapterView.OnIt
         availabletime = (TextView)findViewById(R.id.avaitime) ;
         Spinner spinnertime = findViewById(R.id.spinner2);
         addavailability = (Button)findViewById(R.id.add);
-        finishadding=(Button)findViewById(R.id.finishadding);
         serviceprovidername = (TextView)findViewById(R.id.serviceprovidername);
         Intent intent = getIntent();
         String text = intent.getStringExtra(SP_profile.EXTRA_TEXT2);
@@ -79,14 +77,6 @@ public class AvailableTime extends AppCompatActivity implements AdapterView.OnIt
 
                     }
                 });
-            }
-        });
-
-        finishadding.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SP_profile.class);
-                startActivity(intent);
             }
         });
 
